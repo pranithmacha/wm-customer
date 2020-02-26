@@ -1,13 +1,16 @@
 import React from 'react'
-import { makeStyles, Theme } from '@material-ui/core/styles'
+import { makeStyles, Theme, useTheme } from '@material-ui/core/styles'
+import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
-import { Paper } from '@material-ui/core'
+import SwipeableViews from 'react-swipeable-views'
+import { Paper, Grid, TextField, InputAdornment } from '@material-ui/core'
 
 interface TabPanelProps {
     children?: React.ReactNode
+    dir?: string
     index: any
     value: any
 }
@@ -20,8 +23,8 @@ function TabPanel(props: TabPanelProps) {
             component="div"
             role="tabpanel"
             hidden={value !== index}
-            id={`vertical-tabpanel-${index}`}
-            aria-labelledby={`vertical-tab-${index}`}
+            id={`full-width-tabpanel-${index}`}
+            aria-labelledby={`full-width-tab-${index}`}
             {...other}
         >
             {value === index && <Box p={3}>{children}</Box>}
@@ -31,67 +34,125 @@ function TabPanel(props: TabPanelProps) {
 
 function a11yProps(index: any) {
     return {
-        id: `vertical-tab-${index}`,
-        'aria-controls': `vertical-tabpanel-${index}`
+        id: `full-width-tab-${index}`,
+        'aria-controls': `full-width-tabpanel-${index}`
     }
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
-        flexGrow: 1,
         backgroundColor: theme.palette.background.paper,
-        display: 'flex',
-        height: 224,
-        marginTop: 100
-    },
-    tabs: {
-        borderRight: `1px solid ${theme.palette.divider}`
-    },
-    paper: {
-        height: 200,
-        width: 800,
-        marginLeft: 80
+        width: '100%'
     }
 }))
 
-const FormStyle = {
-    marginTop: 100
-}
-
 const RequestForm: React.FC = () => {
     const classes = useStyles()
+    const theme = useTheme()
     const [value, setValue] = React.useState(0)
+
+    const tabOneValues = [
+        { material: 'Cardboard', unitPrice: '5' },
+        { material: 'Books', unitPrice: '7' }
+    ]
 
     const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
         setValue(newValue)
     }
 
+    const handleChangeIndex = (index: number) => {
+        setValue(index)
+    }
+
     return (
         <Paper elevation={3}>
             <div className={classes.root}>
-                <Tabs
-                    orientation="vertical"
-                    variant="scrollable"
-                    value={value}
-                    onChange={handleChange}
-                    aria-label="Vertical tabs example"
-                    className={classes.tabs}
+                <AppBar position="static" color="default">
+                    <Tabs
+                        value={value}
+                        onChange={handleChange}
+                        indicatorColor="primary"
+                        textColor="primary"
+                        variant="fullWidth"
+                        aria-label="full width tabs example"
+                    >
+                        <Tab label="Paper" {...a11yProps(0)} />
+                        <Tab label="Metal" {...a11yProps(1)} />
+                        <Tab label="Plastic" {...a11yProps(2)} />
+                    </Tabs>
+                </AppBar>
+                <SwipeableViews
+                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                    index={value}
+                    onChangeIndex={handleChangeIndex}
                 >
-                    <Tab label="Paper" {...a11yProps(0)} />
-                    <Tab label="Plastic" {...a11yProps(1)} />
-                    <Tab label="Metal" {...a11yProps(2)} />
-                </Tabs>
-                <TabPanel value={value} index={0}>
-                    Item One
-                </TabPanel>
-                <TabPanel value={value} index={1}>
-                    Item Two
-                </TabPanel>
-                <TabPanel value={value} index={2}>
-                    Item Three
-                </TabPanel>
+                    <TabPanel value={value} index={0} dir={theme.direction}>
+                        <Grid container spacing={3}>
+                            {tabOneValues.map(item => (
+                                <>
+                                    <Grid item xs={3} md={3}>
+                                        <TextField
+                                            id="type"
+                                            name="username"
+                                            label="Material"
+                                            value={item['material']}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <TextField
+                                            label="Weight"
+                                            id="standard-start-adornment"
+                                            InputProps={{
+                                                endAdornment: (
+                                                    <InputAdornment position="end">
+                                                        Kg
+                                                    </InputAdornment>
+                                                )
+                                            }}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <TextField
+                                            label="Unit Price"
+                                            id="unit_price"
+                                            InputProps={{
+                                                startAdornment: (
+                                                    <InputAdornment position="start">
+                                                        Rs
+                                                    </InputAdornment>
+                                                )
+                                            }}
+                                            value={item['unitPrice']}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <TextField
+                                            label="Total"
+                                            id="unit_price"
+                                            InputProps={{
+                                                startAdornment: (
+                                                    <InputAdornment position="start">
+                                                        Rs
+                                                    </InputAdornment>
+                                                )
+                                            }}
+                                            value={'10'}
+                                        />
+                                    </Grid>
+                                </>
+                            ))}
+                        </Grid>
+                    </TabPanel>
+                    <TabPanel value={value} index={1} dir={theme.direction}>
+                        Item Two
+                    </TabPanel>
+                    <TabPanel value={value} index={2} dir={theme.direction}>
+                        Item Three
+                    </TabPanel>
+                </SwipeableViews>
             </div>
         </Paper>
     )
 }
+
 export default RequestForm
