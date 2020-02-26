@@ -56,7 +56,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export default function Checkout() {
+export default function Profile() {
     const classes = useStyles()
 
     return (
