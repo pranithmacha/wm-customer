@@ -1,9 +1,11 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import SignUp from './views/Signup'
 import RequestForm from './components/RequestForm'
-import SignIn from './components/SignIn'
-import Profile from './components/Profile'
-import SignUp from './components/Signup'
+import SignIn from './views/SignIn'
+import Home from './views/Home'
+import Account from './views/Account/Account'
+import withRoot from './withRoot'
 
 function App() {
     return (
@@ -13,14 +15,17 @@ function App() {
                     <Route path="/signup">
                         <SignUp />
                     </Route>
+                    <Route path="/signin">
+                        <SignIn />
+                    </Route>
                     <Route path="/requestForm">
                         <RequestForm />
                     </Route>
                     <Route path="/profile">
-                        <Profile />
+                        <Account />
                     </Route>
                     <Route path="/">
-                        <SignIn />
+                        <Home />
                     </Route>
                 </Switch>
             </Router>
@@ -28,4 +33,4 @@ function App() {
     )
 }
 
-export default App
+export default withRoot(App)
