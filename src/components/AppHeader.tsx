@@ -49,7 +49,7 @@ const AppHeader = (props: any) => {
                         className={classes.title}
                         href="/premium-themes/onepirate/"
                     >
-                        {'onepirate'}
+                        {'wow'}
                     </Link>
                     <div className={classes.right}>
                         <Link
@@ -61,7 +61,7 @@ const AppHeader = (props: any) => {
                         >
                             {'Sign In'}
                         </Link>
-                        <Link
+                        {/* <Link
                             variant="h6"
                             underline="none"
                             className={clsx(
@@ -71,7 +71,7 @@ const AppHeader = (props: any) => {
                             href="/signup"
                         >
                             {'Sign Up'}
-                        </Link>
+                        </Link> */}
                     </div>
                 </Toolbar>
             </AppBar>

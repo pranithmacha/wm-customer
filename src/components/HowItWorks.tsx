@@ -3,9 +3,10 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
 import Typography from './Typography'
-import Log1 from '../../src/static/productHowItWorks2.svg'
-import Log2 from '../../src/static/productHowItWorks2.svg'
-import Log3 from '../../src/static/productHowItWorks3.svg'
+import signup from '../../src/static/address-card-solid.svg'
+import request from '../../src/static/paper-plane-solid.svg'
+import pickup from '../../src/static/shipping-fast-solid.svg'
+import payment from '../../src/static/hand-holding-usd-solid.svg'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -38,6 +39,7 @@ const useStyles = makeStyles((theme: Theme) =>
             fontWeight: theme.typography.fontWeightMedium
         },
         image: {
+            color: 'blue',
             height: 55,
             marginTop: theme.spacing(4),
             marginBottom: theme.spacing(4)
@@ -79,12 +81,12 @@ const HowItWorks = (props: any) => {
                             <div className={classes.item}>
                                 <div className={classes.number}>1.</div>
                                 <img
-                                    src={Log1}
+                                    src={signup}
                                     alt="suitcase"
                                     className={classes.image}
                                 />
                                 <Typography variant="h5" align="center">
-                                    Appointment every Wednesday 9am.
+                                    Signup to create an account
                                 </Typography>
                             </div>
                         </Grid>
@@ -92,13 +94,12 @@ const HowItWorks = (props: any) => {
                             <div className={classes.item}>
                                 <div className={classes.number}>2.</div>
                                 <img
-                                    src={Log2}
+                                    src={request}
                                     alt="graph"
                                     className={classes.image}
                                 />
                                 <Typography variant="h5" align="center">
-                                    First come, first served. Our offers are in
-                                    limited quantities, so be quick.
+                                    Request a pick up for your dry waste
                                 </Typography>
                             </div>
                         </Grid>
@@ -106,15 +107,12 @@ const HowItWorks = (props: any) => {
                             <div className={classes.item}>
                                 <div className={classes.number}>3.</div>
                                 <img
-                                    src={Log3}
+                                    src={pickup}
                                     alt="clock"
                                     className={classes.image}
                                 />
                                 <Typography variant="h5" align="center">
-                                    {
-                                        'New offers every week. New experiences, new surprises. '
-                                    }
-                                    {'Your Sundays will no longer be alike.'}
+                                    We will pick up the waste at your doorstep
                                 </Typography>
                             </div>
                         </Grid>
@@ -122,15 +120,12 @@ const HowItWorks = (props: any) => {
                             <div className={classes.item}>
                                 <div className={classes.number}>4.</div>
                                 <img
-                                    src={Log3}
+                                    src={payment}
                                     alt="clock"
                                     className={classes.image}
                                 />
                                 <Typography variant="h5" align="center">
-                                    {
-                                        'New offers every week. New experiences, new surprises. '
-                                    }
-                                    {'Your Sundays will no longer be alike.'}
+                                    Get paid !!!
                                 </Typography>
                             </div>
                         </Grid>
