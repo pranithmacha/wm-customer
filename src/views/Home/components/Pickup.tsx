@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme: Theme) =>
             padding: theme.spacing(0, 5)
         },
         mainText: {
-            marginTop: 150,
+            marginTop: 100,
             color: '#5f9ea0'
         },
         subText: {
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme: Theme) =>
             color: '#5f9ea0'
         },
         gridItem: {
-            height: '50%',
+            height: '30%',
             justifyContent: 'center',
             textAlign: 'center'
         },
@@ -83,7 +83,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const Pickup: React.FC = () => {
     const classes = useStyles()
     return (
-        <div id="mainHeader">
+        <div>
             <Grid
                 container
                 direction="column"
@@ -91,8 +91,8 @@ const Pickup: React.FC = () => {
                 justify="center"
             >
                 <Grid item xs={12} className={classes.gridItem}>
-                    <Typography variant="h2" className={classes.mainText}>
-                        What we pickup
+                    <Typography variant="h4" className={classes.mainText}>
+                        What we pickup?
                     </Typography>
                 </Grid>
                 <Grid item xs={12} className={classes.gridItem}>

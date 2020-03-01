@@ -4,22 +4,26 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
-import Badge from '@material-ui/core/Badge'
 import MenuItem from '@material-ui/core/MenuItem'
 import Menu from '@material-ui/core/Menu'
-import AccountCircle from '@material-ui/icons/AccountCircle'
-import MailIcon from '@material-ui/icons/Mail'
-import NotificationsIcon from '@material-ui/icons/Notifications'
 import MoreIcon from '@material-ui/icons/MoreVert'
-import EcoIcon from '@material-ui/icons/Eco'
+import leaf from '../../../../static/leaf-solid.svg'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         headerIcon: {
-            color: '#139a49'
+            color: '#139a49',
+            height: 30
         },
         grow: {
             flexGrow: 1
+        },
+        image: {
+            color: 'blue',
+            height: 35,
+            marginTop: theme.spacing(4),
+            marginBottom: theme.spacing(4),
+            paddingRight: theme.spacing(2)
         },
         menuButton: {
             marginRight: theme.spacing(2)
@@ -29,11 +33,11 @@ const useStyles = makeStyles((theme: Theme) =>
             [theme.breakpoints.up('sm')]: {
                 display: 'block'
             },
-            color: '#5f9ea0'
+            color: '#ffffff'
         },
         navItem: {
             padding: theme.spacing(2),
-            color: '#5f9ea0'
+            color: '#ffffff'
         },
         inputRoot: {
             color: 'inherit'
@@ -151,15 +155,7 @@ export default function NavBar() {
                 style={{ background: 'transparent', boxShadow: 'none' }}
             >
                 <Toolbar>
-                    <IconButton
-                        size="medium"
-                        aria-label="account of current user"
-                        aria-controls="primary-search-account-menu"
-                        aria-haspopup="true"
-                        className={classes.headerIcon}
-                    >
-                        <EcoIcon />
-                    </IconButton>
+                    <img src={leaf} alt="clock" className={classes.image} />
                     <Typography className={classes.title} variant="h4" noWrap>
                         WOW
                     </Typography>

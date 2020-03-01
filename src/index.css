@@ -5,17 +5,23 @@ body {
         'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* background: linear-gradient(
-            to bottom,
-            rgba(92, 77, 66, 0.8) 0%,
-            rgba(92, 77, 66, 0.8) 100%
-        ),
-        url('bg-masthead.jpg');
-    background-size: cover;
-    opacity: 5; */
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
+}
+
+#mainHeader {
+    background: linear-gradient(
+            to bottom,
+            rgba(92, 77, 66, 0.8) 0%,
+            rgba(92, 77, 66, 0.8) 100%
+        ),
+        url('waste6.jpeg');
+
+    opacity: 5;
+    background-position: center;
+    height: 800px;
+    background-size: cover;
 }

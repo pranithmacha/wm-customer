@@ -14,11 +14,11 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         mainText: {
             marginTop: 150,
-            color: '#5f9ea0'
+            color: '#ffffff'
         },
         subText: {
             marginTop: 50,
-            color: '#5f9ea0'
+            color: '#ffffff'
         },
         gridItem: {
             height: '50%',

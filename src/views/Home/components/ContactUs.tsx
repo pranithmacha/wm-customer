@@ -5,12 +5,11 @@ import {
     Theme,
     createStyles,
     Divider,
-    Chip,
     Container
 } from '@material-ui/core'
 import Typography from '../../../components/Typography'
 import mail from '../../../static/envelope-regular.svg'
-import phone from '../../../static/phone-solid.svg'
+import phone from '../../../static/mobile-alt-solid.svg'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -46,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) =>
             padding: theme.spacing(0, 5)
         },
         mainText: {
-            marginTop: 150,
+            marginTop: 100,
             color: '#5f9ea0'
         },
         subText: {
@@ -54,7 +53,7 @@ const useStyles = makeStyles((theme: Theme) =>
             color: '#5f9ea0'
         },
         gridItem: {
-            height: '50%',
+            height: '30%',
             justifyContent: 'center',
             textAlign: 'center'
         },
@@ -81,7 +80,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const ContactUs: React.FC = () => {
     const classes = useStyles()
     return (
-        <div id="mainHeader">
+        <div>
             <Grid
                 container
                 direction="column"
@@ -89,7 +88,7 @@ const ContactUs: React.FC = () => {
                 justify="center"
             >
                 <Grid item xs={12} className={classes.gridItem}>
-                    <Typography variant="h2" className={classes.mainText}>
+                    <Typography variant="h4" className={classes.mainText}>
                         Contact us
                     </Typography>
                 </Grid>
@@ -122,7 +121,7 @@ const ContactUs: React.FC = () => {
                                         className={classes.image}
                                     />
                                     <Typography variant="h5" align="center">
-                                        040-8157981111
+                                        8157981111
                                     </Typography>
                                 </div>
                             </Grid>
