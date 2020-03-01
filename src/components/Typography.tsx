@@ -50,6 +50,8 @@ function Typography(props: any) {
         <MuiTypography
             variantMapping={variantMapping}
             variant={variant}
+            onClick={() => {}}
+            href={''}
             {...other}
         >
             {children}

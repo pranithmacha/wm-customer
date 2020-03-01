@@ -2,11 +2,11 @@ import React from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
-import Typography from './Typography'
-import signup from '../../src/static/address-card-solid.svg'
-import request from '../../src/static/paper-plane-solid.svg'
-import pickup from '../../src/static/shipping-fast-solid.svg'
-import payment from '../../src/static/hand-holding-usd-solid.svg'
+import Typography from '../../../components/Typography'
+import signup from '../../../static/address-card-solid.svg'
+import request from '../../../static/paper-plane-solid.svg'
+import pickup from '../../../static/shipping-fast-solid.svg'
+import payment from '../../../static/hand-holding-usd-solid.svg'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -30,7 +30,8 @@ const useStyles = makeStyles((theme: Theme) =>
             padding: theme.spacing(0, 5)
         },
         title: {
-            marginBottom: theme.spacing(14)
+            marginBottom: theme.spacing(14),
+            color: theme.palette.text.secondary
         },
         number: {
             fontSize: 24,
@@ -73,7 +74,7 @@ const HowItWorks = (props: any) => {
                     className={classes.title}
                     component="h2"
                 >
-                    Make money out of Waste
+                    Make wealth out of Waste
                 </Typography>
                 <div>
                     <Grid container spacing={5}>

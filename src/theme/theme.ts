@@ -1,5 +1,6 @@
 import { createMuiTheme } from '@material-ui/core/styles'
 import { green, grey, red } from '@material-ui/core/colors'
+import { colors } from '@material-ui/core'
 
 const rawTheme = createMuiTheme({
     palette: {
@@ -34,6 +35,14 @@ const rawTheme = createMuiTheme({
         fontWeightLight: 300, // Work Sans
         fontWeightRegular: 400, // Work Sans
         fontWeightMedium: 700 // Roboto Condensed
+    },
+    overrides: {
+        MuiDivider: {
+            root: {
+                backgroundColor: 'currentColor',
+                color: 'currentColor'
+            }
+        }
     }
 })
 
@@ -43,16 +52,22 @@ const fontHeader = {
     fontFamily: rawTheme.typography.fontFamily,
     textTransform: 'uppercase'
 }
+const white = '#FFFFFF'
+const black = '#000000'
 
 const theme = {
     ...rawTheme,
     palette: {
         ...rawTheme.palette,
+        black,
+        white,
         background: {
             ...rawTheme.palette.background,
             default: rawTheme.palette.common.white,
             placeholder: grey[200]
-        }
+        },
+        icon: colors.blueGrey[600],
+        divider: colors.grey[200]
     },
     typography: {
         ...rawTheme.typography,

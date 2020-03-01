@@ -1,35 +1,24 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import SignUp from './views/Signup'
-import RequestForm from './components/RequestForm'
-import SignIn from './views/SignIn'
-import Home from './views/Home'
-import Account from './views/Account/Account'
+import { BrowserRouter as Router } from 'react-router-dom'
 import withRoot from './withRoot'
+import { ThemeProvider } from '@material-ui/core'
+import theme from '../src/theme/theme'
+import Routes from './routes/Routes'
+import HomePage from './views/Home/HomePage'
 
 function App() {
     return (
-        <div>
+        <React.Fragment>
             <Router>
-                <Switch>
-                    <Route path="/signup">
-                        <SignUp />
-                    </Route>
-                    <Route path="/signin">
-                        <SignIn />
-                    </Route>
-                    <Route path="/requestForm">
-                        <RequestForm />
-                    </Route>
-                    <Route path="/profile">
-                        <Account />
-                    </Route>
-                    <Route path="/">
-                        <Home />
-                    </Route>
-                </Switch>
+                <Routes />
             </Router>
-        </div>
+        </React.Fragment>
+
+        // <ThemeProvider theme={theme}>
+        //     <Router>
+        //         <Routes />
+        //     </Router>
+        // </ThemeProvider>
     )
 }
 

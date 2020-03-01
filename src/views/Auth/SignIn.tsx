@@ -27,6 +27,12 @@ function Copyright() {
 }
 
 const useStyles = makeStyles(theme => ({
+    body: {
+        backgroundColor: theme.palette.secondary.main
+    },
+    root: {
+        background: theme.palette.secondary.main
+    },
     paper: {
         marginTop: theme.spacing(8),
         display: 'flex',
@@ -50,7 +56,7 @@ export default function SignIn() {
     const classes = useStyles()
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" className={classes.root}>
             <CssBaseline />
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
